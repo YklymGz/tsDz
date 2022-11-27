@@ -7,8 +7,10 @@ class QuizViewer {
   private questionNode!: HTMLSpanElement;
   private questionTimeNode!: HTMLSpanElement;
   private totalTimeNode!: HTMLSpanElement;
-  private backBtn!: HTMLButtonElement;
+  // private backBtn!: HTMLButtonElement;
   private nextBtn!: HTMLButtonElement;
+
+  private scoreNode!: HTMLSpanElement;
 
   constructor() {
     this.titleNode = document.querySelector("#quizTitle") as HTMLHeadElement;
@@ -19,7 +21,9 @@ class QuizViewer {
     this.totalTimeNode = document.querySelector(
       "#totalTime"
     )! as HTMLSpanElement;
-    this.backBtn = document.querySelector("#back")! as HTMLButtonElement;
+    this.scoreNode = document.querySelector("#score")! as HTMLSpanElement;
+
+    // this.backBtn = document.querySelector("#back")! as HTMLButtonElement;
     this.nextBtn = document.querySelector("#next")! as HTMLButtonElement;
     console.log("totalTimeNode", this.totalTimeNode);
   }
@@ -40,12 +44,18 @@ class QuizViewer {
     this.nextBtn.addEventListener("click", cb);
   }
 
-  initPrevBtn(cb: () => void) {
-    this.backBtn.addEventListener("click", cb);
-  }
+  // initPrevBtn(cb: () => void) {
+  //   this.backBtn.addEventListener("click", cb);
+  // }
 
   displayQuestion(question: Question) {
     this.questionNode.innerHTML = question.formula;
+  }
+
+  setScore(score: number = 0) {
+    console.log("set score", score);
+
+    this.scoreNode.innerText = String(score);
   }
 }
 

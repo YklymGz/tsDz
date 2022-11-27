@@ -8,7 +8,7 @@ class Timer {
     }
     // resets timer
     reset() {
-        this._time = 1;
+        this._time = 0;
         return this;
     }
     // continues timer from where it stopped
